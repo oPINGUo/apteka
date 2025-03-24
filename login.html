@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Przychodnia "Razem w gór"</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style-login.css'>
+</head>
+<body> 
+    <form autocomplete="off">
+        <div class="form__input-container">
+          <input id="imie" type="text" placeholder=" " />
+          <label for="imie">Imie</label>
+        </div>
+        <div class="form__input-container">
+          <input id="nazwisko" type="text" placeholder=" " />
+          <label for="nazwisko">Nazwisko</label>
+        </div>
+        <div class="form__input-container">
+          <input id="pesel" type="text" maxlength="11" placeholder=" "/>
+          <label for="pesel">Pesel</label>
+        </div>
+        <div class="form__input-container">
+          <input id="numer_tel" placeholder=" " for="Numer telefonu" type="number"oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        maxlength="9"/>
+          <label for="numer_tel">Numer telefonu</label>
+        </div>
+        <div class="form__input-container">
+          <select name="specialista" id="specialista">
+            <option value="lekarz rodziny"><p>lekarz rodziny</p></option>
+            <option value="dentysta">dentysta</option>
+            <option value="dermatolog">dermatolog</option>
+            <option value="okulista">okulista</option>
+            <option value="urolog">urolog</option>
+            <option value="ginekolog">ginekolog</option>
+          </select>
+        </div>
+        <div class="form__input-container">
+          <input id="godzina" type="time" placeholder=" " />
+          <label for="godzina">Godzina wizyty</label>
+        </div>
+        <div class="form__input-container">
+          <input id="data" type="date" min="2024-09-22" placeholder=" " />
+          <label for="data">Data wizyty</label>
+        </div>
+        </form>
+    <form action="#" class="signature-pad-form" method="POST">
+        <p>
+            <b style="color: grey;">Podpis</b>
+        </p>
+
+        <canvas height="100" width="300" class="signature-pad"></canvas>
+
+        <p>
+            <a href="#" class="clear-button" style="color:grey;">UsuD</a>
+        </p>
+
+        <button class="submit-button" type="submit">POTWIERDy</button>
+    </form>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="modal-info"></div>
+        <div id="signature-container">
+          <p><b>Sygnatura:</b></p>
+          <img id="signature-image" />
+        </div>
+      </div>
+    </div>
+    
+    <script src='podpis.js'></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+/* Globalne ustawienia */
+html, body {
+    margin: 0;
+    height: 100%;
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* GBówny kontener  podziaB na dwa panele */
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* Lewy panel  menu (20% szeroko[ci) */
+  .sidebar {
+    width: 20%;
+    background: #1B2030;
+    color: #eee;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100vh;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar li {
+    margin-bottom: 15px;
+  }
+  
+  .sidebar a {
+    font-size: 1.2em;
+  }
+  
+  /* Prawa cz[  gBówna zawarto[ (80% szeroko[ci) */
+  .main {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Blok header  zawiera pasek nawigacji i animowany obraz */
+  .header {
+    display: flex;
+    flex-direction: column;
+    height: 60%; /* Header zajmuje 60% wysoko[ci prawego panelu */
+    position: relative;
+    overflow: hidden;
+    color: #eee;
+  }
+  
+  /* Pasek nawigacyjny */
+  .top-nav {
+    flex: 0 0 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  .logo {
+    font-weight: 900;
+    font-size: 1.5em;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    padding: 5px 10px;
+  }
+  
+  /* Przycisk menu */
+  .menu {
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    position: relative;
+  }
+  
+  .menu:after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 3px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 8px 0 0 #fff, 0 -8px 0 0 #fff;
+  }
+  
+  /* Obszar z animowanym tBem */
+  .header-image {
+    flex: 1;
+    background: #1B2030 url(tlo.jpg) 50% 0;
+    background-size: cover;
+    background-attachment: fixed;
+    animation: grow 30s ease-in-out infinite alternate;
+    z-index: 1;
+  }
+  
+  @keyframes grow {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  
+  /* Sekcja slidera z medykamentami */
+  .med-slider {
+    background: #f5f5f5;
+    padding: 20px;
+    overflow: hidden;
+  }
+  
+  .carousel {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  
+  .slider-track {
+    display: flex;
+    /* Szeroko[ ustawiamy na dwukrotno[ sumarycznej szeroko[ci elementów, 
+       by umo|liwi pBynne przej[cie dziki duplikacji */
+    width: calc(2 * (200px + 20px) * 6);
+    animation: slide 30s linear infinite;
+  }
+  
+  .slide {
+    flex: 0 0 auto;
+    width: 200px;
+    margin-right: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  /* Kluczowe animacje dla slidera */
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  /* Blok content  dodatkowy content poni|ej slidera */
+  .content {
+    flex: 1;
+    padding: 20px;
+    background: #fff;
+    color: #333;
+    overflow-y: auto;
+  }
+  
+  /* Stylizacja dialogu */
+  dialog {
+    display: block;
+    inset: 0;
+    transition: opacity 0.5s;
+    border-radius: 3px;
+    padding: 20px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+    background: #fffd;
+    border: 0;
+    min-width: 60vw;
+  }
+  
+  dialog:not([open]) {
+    pointer-events: none;
+    opacity: 0;
+  }
+  
+  dialog::backdrop {
+    backdrop-filter: blur(0.25rem);
+  }
+  
+  dialog a {
+    font-size: 1.4em;
+    display: block;
+    text-align: center;
+    margin: 10px 15px;
+    padding: 5px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  dialog a:hover {
+    text-decoration: underline;
+    color: #000;
+  }
+  
+  /* Opcjonalne dodatkowe style */
+  .twtr {
+    margin-top: 100px;
+  }
+  
+  .btn.twtr:after {
+    content: "\1d54f";
+    padding-left: 5px;
+  }
+  
