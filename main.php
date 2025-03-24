@@ -20,9 +20,9 @@
       </ul>
     </nav>
     
-    <!-- Prawy blok  gBówna zawarto[ (80% szeroko[ci) -->
+    <!-- Prawy blok  gBï¿½wna zawarto[ (80% szeroko[ci) -->
     <div class="main">
-      <!-- Blok header z górn nawigacj i animowanym tBem -->
+      <!-- Blok header z gï¿½rn nawigacj i animowanym tBem -->
       <header class="header">
         <div class="top-nav">
           <a href="#" class="logo">Apteka</a>
@@ -31,28 +31,30 @@
         <div class="header-image"></div>
       </header>
       
-      <!-- Blok z przesuwajcymi si kafelkami (slider medykamentów) -->
+      <!-- Blok z przesuwajcymi si kafelkami (slider medykamentï¿½w) -->
       <section class="med-slider">
         <div class="carousel">
           <div class="slider-track">
-            <div class="slide">Paracetamol</div>
-            <div class="slide">Ibuprofen</div>
-            <div class="slide">Aspiryna</div>
-            <div class="slide">Amoksycylina</div>
-            <div class="slide">Lisinopril</div>
-            <div class="slide">Metformina</div>
-            <!-- Duplikacja kafelków dla pBynnego przesuwania -->
-            <div class="slide">Paracetamol</div>
-            <div class="slide">Ibuprofen</div>
-            <div class="slide">Aspiryna</div>
-            <div class="slide">Amoksycylina</div>
-            <div class="slide">Lisinopril</div>
-            <div class="slide">Metformina</div>
+          <?php
+          $polaczenie=mysqli_connect('localhost','zset_uplewka','Plewka_123','zset_uplewka');
+          $sql = "SELECT * FROM Leki";
+          $result = mysqli_query($polaczenie, $sql); 
+          while ($row = mysqli_fetch_assoc($result)){
+            echo'<div class="slide">'.$row['nazwa'].'</div>';
+          }
+          ?>  
+            <!-- Duplikacja kafelkï¿½w dla pBynnego przesuwania -->
+          <?php
+          
+          while ($row = mysqli_fetch_assoc($result)){
+            echo'<div class="slide">'.$row['nazwa'].'</div>';
+          }
+          ?>
           </div>
         </div>
       </section>
       
-      <!-- Dodatkowy content, który mo|esz rozbudowa -->
+      <!-- Dodatkowy content, ktï¿½ry mo|esz rozbudowa -->
       <section class="content">
         <p>Tutaj umie[ dodatkowy content witryny.</p>
       </section>
